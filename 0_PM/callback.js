@@ -19,3 +19,13 @@ const getUser = callback => {
   };
   callback(user);
 };
+
+getUser((user) => {
+  coinToss(user.guess, ((didWin) => {
+    if(didWin) {
+      console.log("Your guess was correct!");
+    } else {
+      console.log("Your guess was incorrect.");
+    } 
+  }))
+})

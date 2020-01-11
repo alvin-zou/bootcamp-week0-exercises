@@ -10,8 +10,18 @@ const assert = require('assert')
  */
 
 const hasFalsyValue = obj => {
-  return false;
-};
+  let bool = false;
+  Object.values(obj).forEach(el => {
+    if((typeof el)==="object") {
+      bool = hasFalsyValue(el);
+    } else {
+      if(!el) {
+        bool = true;
+      }
+    }
+  });
+  return bool;
+}
 
 const falsyObj = {
   hi: "I am falsy somewhere...",

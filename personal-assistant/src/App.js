@@ -1,8 +1,18 @@
 import React from 'react'
+import { Switch, Route } from 'react-router-dom'
+import TodosPage from './TodosPage'
+import HomePage from './HomePage'
 
 const App = () => (
   <div>
-    Beep boop hi there, I&apos;m your personal assistant hehe
+    <Switch>
+      <Route path="/todos">
+        <TodosPage />
+      </Route>
+      <Route path="/">
+        <HomePage />
+      </Route>
+    </Switch>
   </div>
 )
 
